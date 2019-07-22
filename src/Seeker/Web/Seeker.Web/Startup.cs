@@ -28,12 +28,20 @@ namespace Seeker.Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddDbContext<SeekerContext>(options => {
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"));
+            });
 
-            services.AddDbContext<SeekerContext>(options =>
-            options.UseSqlServer(
-                this.Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDefaultIdentity<SeekerUser>(option =>
+            {
+                //option.Password.RequireDigit = false;
+                //option.Password.RequiredLength = 3;
+                //option.Password.RequireLowercase = false;
+                //option.Password.RequireUppercase = false;
+                //option.Password.RequireNonAlphanumeric = false;
 
-            services.AddDefaultIdentity<SeekerUser>()
+            })
                 .AddEntityFrameworkStores<SeekerContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

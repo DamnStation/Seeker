@@ -1,4 +1,5 @@
-﻿@inject SignInManager<SeekerUser> SignInManager
+﻿@using Seeker.Data.Models
+@inject SignInManager<SeekerUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }
