@@ -13,8 +13,7 @@ namespace Seeker.Data
         public SeekerContext CreateDbContext(string[] args)
             {
                 IConfigurationRoot configuration = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json")
+                    .SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json")
                     .Build();
                 var builder = new DbContextOptionsBuilder<SeekerContext>();
                 var connectionString = configuration.GetConnectionString("DefaultConnection");

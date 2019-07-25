@@ -35,11 +35,11 @@ namespace Seeker.Web
 
             services.AddDefaultIdentity<SeekerUser>(option =>
             {
-                //option.Password.RequireDigit = false;
-                //option.Password.RequiredLength = 3;
-                //option.Password.RequireLowercase = false;
-                //option.Password.RequireUppercase = false;
-                //option.Password.RequireNonAlphanumeric = false;
+                option.Password.RequireDigit = false;
+                option.Password.RequiredLength = 3;
+                option.Password.RequireLowercase = false;
+                option.Password.RequireUppercase = false;
+                option.Password.RequireNonAlphanumeric = false;
 
             })
                 .AddEntityFrameworkStores<SeekerContext>();

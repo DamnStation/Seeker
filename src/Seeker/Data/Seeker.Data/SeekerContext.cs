@@ -4,6 +4,7 @@ using Seeker.Data.Models;
 
 namespace Seeker.Data
 {
+
     public class SeekerContext : 
         IdentityDbContext<SeekerUser>
     {
